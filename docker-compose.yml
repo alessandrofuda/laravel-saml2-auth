@@ -1,0 +1,72 @@
+version: '3'
+services:
+
+  #PHP Service
+  app:
+    container_name: saml2_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: digitalocean.com/php
+    # restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+      APP_ENV: local
+    networks:
+      - app-network
+
+  #Nginx Service
+  webserver:
+    image: nginx:1.10.3
+    container_name: saml2_webserver
+    # restart: unless-stopped
+    tty: true
+    ports:
+      - "8087:80"
+    #  - "44385:443"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
+  #MySQL Service
+  db:
+    image: mysql:5.7.29
+    container_name: saml2_db
+    # restart: unless-stopped
+    tty: true
+    ports:
+      - "3311:3306"
+    environment:
+      # docker create db and 'root' user with below info
+      # non-root user can be created directly into db (for ex. via web with adminer)
+      MYSQL_DATABASE: saml2_docker
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: saml2
+      MYSQL_PASSWORD: secret
+      SERVICE_NAME: mysql
+      SERVICE_TAGS: dev
+    volumes:
+      - dbdata:/var/lib/mysql/
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local
+
+
