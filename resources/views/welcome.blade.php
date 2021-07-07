@@ -94,6 +94,11 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+                <div style="margin-top:40px;">
+                    https://docs.microsoft.com/it-it/graph/tutorials/php?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps&tutorial-step=1
+                </div>
+
             </div>
         </div>
     </body>
