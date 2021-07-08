@@ -96,7 +96,11 @@
                 </div>
 
                 <div style="margin-top:40px;">
+                    slides24 package disabled.
+
                     https://docs.microsoft.com/it-it/graph/tutorials/php?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps&tutorial-step=1
+                    https://docs.microsoft.com/it-it/azure/active-directory/develop/v2-app-types
+
                 </div>
 
             </div>
