@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -48,11 +50,24 @@ class LoginController extends Controller
     {
         $azureUser = Socialite::driver('azure')->user();
 
-        dd($azureUser);
+        // dump($azureUser->getName());
         // dd($azureUser->token);
+        if($azureUser->token) {
+            $user = User::where('name', $azureUser->getName())->first() ?? null;
 
-        // if token
-        // $user = User::where('name', $azureUser->name)->first();
-        // Auth::login($user, true);
+            if($user) {
+                Auth::login($user, true);
+            } else {
+                die('User non present in local DB');
+            }
+
+            return redirect()->back();
+        }
+
+    }
+
+    public function logout()
+    {
+        dd('TODO'); // TODO
     }
 }

@@ -102,6 +102,21 @@
                     https://docs.microsoft.com/it-it/azure/active-directory/develop/v2-app-types)<br>
                 </div>
                 <a class="btn btn-outline-success mt-4" href="{{route('login.azure')}}">Login with MS Azure</a>
+                <ul class="text-left mt-5 pt-5">
+                    <li>paperino@alessandrofudagmailcom.onmicrosoft.com</li>
+                    <li>pluto@alessandrofudagmailcom.onmicrosoft.com</li>
+                    <li>pippo@alessandrofudagmailcom.onmicrosoft.com</li>
+                    <li class="mt-4">{{env('PASSWORD_PER_TEST_USERS')}}</li>
+                </ul>
+
+                @auth
+                    <div class="mt-5 pt-5">User logged in:</div>
+                    <ul>
+                        <li>Name: {{Auth::user()->name}}</li>
+                        <li>Email: {{Auth::user()->email}}</li>
+                    </ul>
+                    <a class="btn btn-secondary" href="{{route('logout.azure')}}">Logout</a>
+                @endauth
 
             </div>
         </div>

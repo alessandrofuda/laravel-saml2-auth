@@ -17,3 +17,11 @@ Route::get('/', function () {
 
 Route::get('login/azure', 'Auth\LoginController@redirectToProvider')->name('login.azure');
 Route::get('login/azure/callback', 'Auth\LoginController@handleProviderCallback')->name('login.azure.callback');
+Route::get('logout/azure', 'Auth\LoginController@logout')->name('logout.azure');
+
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('home', function() {
+        return redirect('/');
+    });
+});
