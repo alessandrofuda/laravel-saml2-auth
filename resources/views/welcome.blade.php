@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
         <style>
             html, body {
                 background-color: #fff;
@@ -95,13 +96,13 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
 
-                <div style="margin-top:40px;">
-                    slides24 package disabled.
-
-                    https://docs.microsoft.com/it-it/graph/tutorials/php?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps&tutorial-step=1
-                    https://docs.microsoft.com/it-it/azure/active-directory/develop/v2-app-types
-
+                <div class="my-4">
+                    use socialite pckg<br><br>
+                    (https://docs.microsoft.com/it-it/graph/tutorials/php?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps&tutorial-step=1<br>
+                    https://docs.microsoft.com/it-it/azure/active-directory/develop/v2-app-types)<br>
                 </div>
+
+                <div class="btn btn-outline-success mt-4">Login with MS Azure</div>
 
             </div>
         </div>
