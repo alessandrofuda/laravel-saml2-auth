@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -36,5 +37,22 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('azure')->redirect();
+    }
+
+    public function handleProviderCallback()
+    {
+        $azureUser = Socialite::driver('azure')->user();
+
+        dd($azureUser);
+        // dd($azureUser->token);
+
+        // if token
+        // $user = User::where('name', $azureUser->name)->first();
+        // Auth::login($user, true);
     }
 }

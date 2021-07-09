@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('login/azure', 'Auth\LoginController@redirectToProvider')->name('login.azure');
+Route::get('login/azure/callback', 'Auth\LoginController@handleProviderCallback')->name('login.azure.callback');

@@ -101,8 +101,7 @@
                     (https://docs.microsoft.com/it-it/graph/tutorials/php?WT.mc_id=Portal-Microsoft_AAD_RegisteredApps&tutorial-step=1<br>
                     https://docs.microsoft.com/it-it/azure/active-directory/develop/v2-app-types)<br>
                 </div>
-
-                <div class="btn btn-outline-success mt-4">Login with MS Azure</div>
+                <a class="btn btn-outline-success mt-4" href="{{route('login.azure')}}">Login with MS Azure</a>
 
             </div>
         </div>
