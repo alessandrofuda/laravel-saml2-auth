@@ -70,9 +70,11 @@ class LoginController extends Controller
     {
         Auth::logout();
 
+        session()->flush();
+
         return redirect()->back()->with('message', 'User locally logged out correctly');
 
 
-        dd('TODO'); // TODO
+        // dd('TODO'); // TODO
     }
 }

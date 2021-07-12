@@ -127,6 +127,8 @@
                     <a class="btn btn-secondary" href="{{route('logout.azure')}}">Logout</a>
                 @endauth
 
+                <div class="text-bold">Session: {{-- session()->all() --}}</div>
+
             </div>
         </div>
     </body>
